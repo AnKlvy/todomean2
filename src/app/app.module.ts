@@ -12,10 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
-
+import {MatListModule} from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatCheckboxModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule,
+    MatInputModule
   ],
   providers: [
     provideClientHydration(),
