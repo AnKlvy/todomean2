@@ -5,7 +5,7 @@ const Task = require('./src/models/Task'); // Подключаем модель 
 require('dotenv').config();
 
 const app = express();
-app.use(express.json());
+app.use(express.json());    
 app.use(cors());
 
 // Подключение к MongoDB Atlas
@@ -24,7 +24,8 @@ app.post('/api/tasks', async (req, res) => {
         await task.save();
         res.status(201).json(task);
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка сервера' });
+        console.log(error);
+        res.status(500).json({ error: 'Ошибка сервера' , error});
     }
 });
 
@@ -34,7 +35,7 @@ app.get('/api/tasks', async (req, res) => {
         const tasks = await Task.find();
         res.json(tasks);
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка сервера' });
+        res.status(500).json({ error: 'Ошибка сервера', error });
     }
 });
 
@@ -45,7 +46,7 @@ app.put('/api/tasks/:id', async (req, res) => {
         const updatedTask = await Task.findByIdAndUpdate(req.params.id, { title, description, status }, { new: true });
         res.json(updatedTask);
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка сервера' });
+        res.status(500).json({ error: 'Ошибка сервера', error });
     }
 });
 
@@ -55,7 +56,7 @@ app.delete('/api/tasks/:id', async (req, res) => {
         await Task.findByIdAndDelete(req.params.id);
         res.json({ message: 'Задача удалена успешно' });
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка сервера' });
+        res.status(500).json({ error: 'Ошибка сервера', error });
     }
 });
 
