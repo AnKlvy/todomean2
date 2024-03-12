@@ -15,11 +15,13 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatListModule} from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { EditTaskComponent } from './components/edit-task/edit-task.component';
+import { UserComponent } from './components/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { TodoService } from '../../services/todo.service';
+import { TodoService } from '../../services/todo/todo.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditTaskComponent } from '../edit-task/edit-task.component';
 
