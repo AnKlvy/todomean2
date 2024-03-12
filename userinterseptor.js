@@ -2,11 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const router = require("./routes/aggregation");
+const router = require("./routes/interceptor");
+
 const app = express();
 const port = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use("/", router);
+
 require('dotenv').config();
 
 // Подключение к MongoDB Atlas
