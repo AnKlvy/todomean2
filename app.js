@@ -3,10 +3,14 @@ const cors = require("cors");
 const mongoose = require('mongoose');
 const Task = require('./src/models/Task'); // Подключаем модель задачи
 require('dotenv').config();
-
+const authRoutes = require("./routes/auth");
 const app = express();
 app.use(express.json());    
 app.use(cors());
+
+
+app.use("/api/user", authRoutes); //authentication routes (register, login)
+
 
 // Подключение к MongoDB Atlas
 async function connectToMongoDB() {
